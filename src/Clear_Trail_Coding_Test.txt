@@ -1,0 +1,165 @@
+=======================================================================================
+1. Write a method to remove a given value from array list having string values.
+
+	private static ArrayList<String> removeValue(String val, ArrayList<String> list){
+
+		if(list.size()>0)
+		{
+			if(list.contains(val))
+			{
+				list.remove(val);
+			}
+		}
+		return list;
+	}
+=========================================================================================================
+2. Write a method to return the maximum value from an integer array passed as an input parameter.
+
+	private static int findMaximuNumber(int[] arr){
+		
+		int max = Integer.MIN_VALUE;
+		
+		if(arr.length > 0)
+		{
+			for(int a : arr)
+			{
+				max = Math.max(a,max);
+			}
+			return max;
+		}
+		return -1;
+
+	}
+=========================================================================================================
+
+3. Write a method to update the city attribute of Student object array list passed as an input parameter. 
+If the city is "Mumbai" then change it to "Delhi". The method should return how many student records were updated.
+
+	private static int updateCityRecord(ArrayList<Student> list){
+		int count = 0;
+		if(list.size() > 0)
+		{
+			for(Student st : list)
+			{
+				if(st.getCity().equalsIgnoreCase("Mumbai"))
+				{
+					st.setCity("Delhi");
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+=========================================================================================================
+
+4. Write a method to check whether the strings passed as input parameters are made up of the same set of characters.
+
+	private static boolean Anagram(String str1, String str2)
+	{
+		int no_of_chars = 256;
+		int[] arr = new int[no_of_chars];
+		char[] ch1 = str1.toCharArray();
+		char[] ch2 = str2.toCharArray();
+
+		if(ch1.length!=ch2.length)
+			return false;
+
+		for(int i =0;i<ch1.length;i++)
+		{
+			arr[ch1[i]-'a']++;
+			arr[ch2[i]-'a']--;
+		}
+		
+		for(int i =0;i<no_of_chars;i++)
+		{
+			if(arr[i]!=0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+=========================================================================================================
+
+5. Write a method to remove duplicate values from an array list passed as an input parameter.
+
+	private static ArrayList<Integer> removeDuplicates(ArrayList<Integer> list){
+
+		if(list.size() > 0)
+		{
+			Set<Integer> set = new HashSet<>(list);
+			list = new ArrayList<>(set);
+		}
+		return list;
+	}
+=========================================================================================================
+6. Write a method to return the second largest element in an integer array passed as an input parameter.
+
+	private static int secondLargest(int[] arr){
+		int first = Integer.MIN_VALUE;
+		int second = Integer.MIN_VALUE;
+		if(arr.length < 2)
+		{
+			return -1;
+		}
+		else
+		{
+			for(int i = 0;i<arr.length;i++)
+			{
+				if(arr[i] > first)
+				{
+					second = first;
+					first = arr[i];
+				}
+
+				if(second < arr[i] && first!=arr[i])
+				{
+					second = arr[i];
+				}
+			}
+		}
+		return second;
+	}
+=========================================================================================================
+7. Write a method to reverse an integer array passed as an input parameter.
+	
+	private static int[] reverse(int[] arr){
+		int[] res = new int[arr.length];int count =0;
+		if(arr.length > 0)
+		{
+			for(int i = arr.length-1;i>=0;i--)
+			{
+				res[count++] = arr[i];
+			}
+		}
+		return res;
+	}
+
+=========================================================================================================
+
+8. Write a method to return the odd numbers and their frequency from an integer array list passed as an 
+input parameter.
+
+	private static HashMap<Integer,Integer> countOddNumbers(ArrayList<Integer> list)
+	{
+		HashMap<Integer,Integer> hm = new HashMap<>();
+
+		for(int i =0;i<list.size();i++)
+		{
+			if(list.get(i)%2!=0)
+			{
+				if(hm.containsKey(list.get(i)))
+				{
+					hm.put(list.get(i),hm.get(list.get(i))+1);
+				}
+				else
+				{
+					hm.put(list.get(i),1);
+				}
+			}
+		}
+		return hm;
+	}
+
