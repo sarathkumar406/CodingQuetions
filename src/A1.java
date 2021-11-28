@@ -9,7 +9,6 @@ class A1
 	}
 	private static void calculateSumValues(int[] arr, int sum)
 	{
-
 		for(int i =0;i<arr.length;i++)
 		{
 			int curr_sum =0;
